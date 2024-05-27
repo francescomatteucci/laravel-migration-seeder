@@ -11,17 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //creiamo una tabella nel db chiamata "trains" con le relative proprietà e tipo di ogni proprietà
         Schema::create('trains', function (Blueprint $table) {
             $table->id();
-            $table->string('azienda', 50);
-            $table->string('stazione_di_partenza', 20);
-            $table->string('stazione_di_arrivo', 20);
+            $table->string('azienda', 60);
+            $table->string('stazione_di_partenza', 40);
+            $table->string('stazione_di_arrivo', 40);
             $table->time('orario_di_partenza');
             $table->time('orario_di_arrivo');
-            $table->decimal('codice_treno', 10, 0);
+            $table->string('codice_treno', 10, 0);
             $table->tinyInteger('numero_carrozze');
-            $table->boolean('in_orario');
-            $table->boolean('cancellato');
+            $table->string('in_orario', 2);
+            $table->string('cancellato', 2);
             $table->timestamps(); 
         });
     }
